@@ -26,7 +26,7 @@ SECRET_KEY = 'd6u(nl)@rv%2#@frtt67t_i8sj@!#sugc4_4$2@k!j(mmf+)!p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['cyberflaxlabs.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
