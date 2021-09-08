@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="{% static 'img/megento.png' %}" rel="icon">
+
+    <link rel="stylesheet" href="{% static  'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <title>{{title}}</title>
+</head>
+
+<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- script -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+
+
+    <div class="blogs-page" style="background:#efefef;">
+        {% include 'header.html' %}
+
+        <div class="blog-navigation">
+            
+        </div>
+        <div class="container">
+            <div class="blog-area">
+                <div class="tags">
+                    <a href="#">
+                        {{blog.blog_catagory}}
+                    </a>
+                    <a href="#">
+                        {{blog.get_type_display}}
+                    </a>
+                </div>
+                <h1>{{blog.blog_title}}</h1>
+                <hr>
+                <div class="views">
+                    <i class="fa fa-eye"></i>11 views
+                </div>
+                <img src="/media/{{blog.blog_image}}"
+                    class="img-fluid mb-3" alt="">
+
+                <div class="blog-content col-lg-8 col-12 mx-auto">
+                    <div class="padding-pera">
+                        {{blog.blog_content|safe}}
+                    </div>
+                </div>
+                
+                <div class="btns" style = 'justify-content:center;'>
+                    <a href="#" class="next-btn"><i class="fa fa-angle-left"></i>
+                        <div class="title">Previous Post</div>
+                    </a>
+
+                    <a href="#" class="next-btn">
+                        <div class="title">Next Post</div><i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+                <hr>
+                <div class="more-tags">
+                    <a href="#">MACHINE LEARNING</a>
+                    <a href="#">MACHINE LEARNING</a>
+                    <a href="#">MACHINE LEARNING DEVELOPER</a>
+                    <a href="#">MACHINE LEARNING EXPERT</a>
+                </div>
+                <h4 style="padding: 20px;">
+                    LIKE IT? SHARE WITH YOUR FRIENDS!
+                </h4>
+                <div class="share-wrap">
+                    <div class="share">
+                        <i class="fa fa-share-alt"></i>
+                        <div class="text">
+                            <b> 549</b>
+                            <div>Share</div>
+                        </div>
+                    </div>
+                    <div class="btns">
+                        <div class="facebook share-btn">
+                            <i class="fa fa-facebook"></i> Facebook
+                        </div>
+                        <div class="twitter share-btn">
+                            <i class="fa fa-twitter"></i> Twitter
+                        </div>
+                    </div>
+
+                </div>
+          
+            </div>
+            <div class="reaction-sections" data-post_id="19228">
+                <div class="reaction-item js-reaction-item " data-reaction_id="1126">
+                    <span class="bb-badge badge reaction reaction-1126">
+                        <span class="circle"> <img
+                                src="https://engineerbabu.com/blog/wp-content/plugins/boombox-theme-extensions/boombox-reactions/svg/angry.svg"
+                                alt="Unuseful"></span>
+                       
+                    </span>
+                    <div class="reaction-bar">
+                        <div class="reaction-stat" style="height:0%"></div>
+                        <div class="reaction-stat-count">0</div>
+                    </div>
+                    <a href="#" class="reaction-vote-btn  ">Unuseful</a>
+                </div>
+                <div class="reaction-item js-reaction-item " data-reaction_id="1127">
+                    <span class="bb-badge badge reaction reaction-1127">
+                        <span class="circle"> <img
+                                src="https://engineerbabu.com/blog/wp-content/plugins/boombox-theme-extensions/boombox-reactions/svg/happy_2.svg"
+                                alt="Useful"></span>
+                       
+                    </span>
+                    <div class="reaction-bar">
+                        <div class="reaction-stat" style="height:0%"></div>
+                        <div class="reaction-stat-count">0</div>
+                    </div>
+                    <a href="#" class="reaction-vote-btn  ">Useful</a>
+                </div>
+                <div class="reaction-item js-reaction-item " data-reaction_id="1100">
+                    <span class="bb-badge badge reaction reaction-1100">
+                        <span class="circle"> <img
+                                src="https://engineerbabu.com/blog/wp-content/plugins/boombox-theme-extensions/boombox-reactions/svg/angry_anime.svg"
+                                alt="hate"></span>
+                    </span>
+                    <div class="reaction-bar">
+                        <div class="reaction-stat" style="height:0%"></div>
+                        <div class="reaction-stat-count">0</div>
+                    </div>
+                    <a href="#" class="reaction-vote-btn  ">hate</a>
+                </div>
+                <div class="reaction-item js-reaction-item " data-reaction_id="1094">
+                    <span class="bb-badge badge reaction reaction-1094">
+                        <span class="circle"> <img
+                                src="https://engineerbabu.com/blog/wp-content/plugins/boombox-theme-extensions/boombox-reactions/svg/confused_anime.svg"
+                                alt="confused"></span>
+                    </span>
+                    <div class="reaction-bar">
+                        <div class="reaction-stat" style="height:0%"></div>
+                        <div class="reaction-stat-count">0</div>
+                    </div>
+                    <a href="#" class="reaction-vote-btn  ">confused</a>
+                </div>
+                <div class="reaction-item js-reaction-item " data-reaction_id="1097">
+                    <span class="bb-badge badge reaction reaction-1097">
+                        <span class="circle"> <img
+                                src="https://engineerbabu.com/blog/wp-content/plugins/boombox-theme-extensions/boombox-reactions/svg/fail-anime.svg"
+                                alt="fail"></span>
+                    </span>
+                    <div class="reaction-bar">
+                        <div class="reaction-stat" style="height:0%"></div>
+                        <div class="reaction-stat-count">0</div>
+                    </div>
+                    <a href="#" class="reaction-vote-btn  ">fail</a>
+                </div>
+                <div class="reaction-item js-reaction-item " data-reaction_id="1098">
+                    <span class="bb-badge badge reaction reaction-1098">
+                        <span class="circle"> <img
+                                src="https://engineerbabu.com/blog/wp-content/plugins/boombox-theme-extensions/boombox-reactions/svg/fun_anime.svg"
+                                alt="fun"></span>
+                    </span>
+                    <div class="reaction-bar">
+                        <div class="reaction-stat" style="height:0%"></div>
+                        <div class="reaction-stat-count">0</div>
+                    </div>
+                    <a href="#" class="reaction-vote-btn  ">fun</a>
+                </div>
+                <div class="reaction-item js-reaction-item " data-reaction_id="1099">
+                    <span class="bb-badge badge reaction reaction-1099">
+                        <span class="circle"> <img
+                                src="https://engineerbabu.com/blog/wp-content/plugins/boombox-theme-extensions/boombox-reactions/svg/geek_anime.svg"
+                                alt="geeky"></span>
+                    </span>
+                    <div class="reaction-bar">
+                        <div class="reaction-stat" style="height:0%"></div>
+                        <div class="reaction-stat-count">0</div>
+                    </div>
+                    <a href="#" class="reaction-vote-btn  ">geeky</a>
+                </div>
+                <div class="reaction-item js-reaction-item " data-reaction_id="1102">
+                    <span class="bb-badge badge reaction reaction-1102">
+                        <span class="circle"> <img
+                                src="https://engineerbabu.com/blog/wp-content/plugins/boombox-theme-extensions/boombox-reactions/svg/like_anime.svg"
+                                alt="love"></span>
+                    </span>
+                    <div class="reaction-bar">
+                        <div class="reaction-stat" style="height:0%"></div>
+                        <div class="reaction-stat-count">0</div>
+                    </div>
+                    <a href="#" class="reaction-vote-btn  ">love</a>
+                </div>
+                <div class="reaction-item js-reaction-item " data-reaction_id="1101">
+                    <span class="bb-badge badge reaction reaction-1101">
+                        <span class="circle"> <img
+                                src="https://engineerbabu.com/blog/wp-content/plugins/boombox-theme-extensions/boombox-reactions/svg/lol_anime.svg"
+                                alt="lol"></span>
+                    </span>
+                    <div class="reaction-bar">
+                        <div class="reaction-stat" style="height:0%"></div>
+                        <div class="reaction-stat-count">0</div>
+                    </div>
+                    <a href="#" class="reaction-vote-btn  ">lol</a>
+                </div>
+                <div class="reaction-item js-reaction-item " data-reaction_id="1104">
+                    <span class="bb-badge badge reaction reaction-1104">
+                        <span class="circle"> <img
+                                src="https://engineerbabu.com/blog/wp-content/plugins/boombox-theme-extensions/boombox-reactions/svg/omg-anime.svg"
+                                alt="omg"></span>
+                    </span>
+                    <div class="reaction-bar">
+                        <div class="reaction-stat" style="height:0%"></div>
+                        <div class="reaction-stat-count">0</div>
+                    </div>
+                    <a href="#" class="reaction-vote-btn  ">omg</a>
+                </div>
+                <div class="reaction-item js-reaction-item " data-reaction_id="1107">
+                    <span class="bb-badge badge reaction reaction-1107">
+                        <span class="circle"> <img
+                                src="https://engineerbabu.com/blog/wp-content/plugins/boombox-theme-extensions/boombox-reactions/svg/win_anime.svg"
+                                alt="win"></span>
+                    </span>
+                    <div class="reaction-bar">
+                        <div class="reaction-stat" style="height:0%"></div>
+                        <div class="reaction-stat-count">0</div>
+                    </div>
+                    <a href="#" class="reaction-vote-btn  ">win</a>
+                </div>
+            </div>
+            <h3>Doesn’t Miss</h3>
+            <div class="blogs-container container">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-4 col-12">
+                        <div class="blog-card">
+                            <a href="blog-page.html">
+                                <div class="image">
+                                    <img class="img-fluid"
+                                        src="https://engineerbabu.com/blog/wp-content/uploads/2021/09/Blog-Images-1.png">
+                                    <div class="post-stats">
+                                        <ul>
+                                            <li><i class="fa fa-eye"></i>11</li>
+                                            <li><i class="fa fa-share"></i>11</li>
+                                            <li><i class="fa fa-comment"></i>11</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </a>
+        
+                            <div class="blog-card-body">
+                                <div class="tags">
+                                    <a href="#">
+                                        App Development
+                                    </a>
+                                    <a href="#">
+                                        Blog
+                                    </a>
+                                </div>
+                                <h3 class="title">
+                                    <a href="blog-page.html"> Tips To Manage & Hire Remote Engineering Team</a>
+                                </h3>
+                                <p class="short-description">
+                                    In the new normal the rules of the workplace have changed. Enterprises have embraced remote
+                                    work
+                                    – with their existing and augmented teams. This model...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-4 col-12">
+                        <div class="blog-card">
+                            <a href="blog-page.html">
+                                <div class="image">
+                                    <img class="img-fluid"
+                                        src="https://engineerbabu.com/blog/wp-content/uploads/2021/09/Blog-Images-1.png">
+                                    <div class="post-stats">
+                                        <ul>
+                                            <li><i class="fa fa-eye"></i>11</li>
+                                            <li><i class="fa fa-share"></i>11</li>
+                                            <li><i class="fa fa-comment"></i>11</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </a>
+        
+                            <div class="blog-card-body">
+                                <div class="tags">
+                                    <a href="#">
+                                        App Development
+                                    </a>
+                                    <a href="#">
+                                        Blog
+                                    </a>
+                                </div>
+                                <h3 class="title">
+                                    <a href="blog-page.html"> Tips To Manage & Hire Remote Engineering Team</a>
+                                </h3>
+                                <p class="short-description">
+                                    In the new normal the rules of the workplace have changed. Enterprises have embraced remote
+                                    work
+                                    – with their existing and augmented teams. This model...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-4 col-12">
+                        <div class="blog-card">
+                            <a href="blog-page.html">
+                                <div class="image">
+                                    <img class="img-fluid"
+                                        src="https://engineerbabu.com/blog/wp-content/uploads/2021/09/Blog-Images-1.png">
+                                    <div class="post-stats">
+                                        <ul>
+                                            <li><i class="fa fa-eye"></i>11</li>
+                                            <li><i class="fa fa-share"></i>11</li>
+                                            <li><i class="fa fa-comment"></i>11</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </a>
+        
+                            <div class="blog-card-body">
+                                <div class="tags">
+                                    <a href="#">
+                                        App Development
+                                    </a>
+                                    <a href="#">
+                                        Blog
+                                    </a>
+                                </div>
+                                <h3 class="title">
+                                    <a href="blog-page.html"> Tips To Manage & Hire Remote Engineering Team</a>
+                                </h3>
+                                <p class="short-description">
+                                    In the new normal the rules of the workplace have changed. Enterprises have embraced remote
+                                    work
+                                    – with their existing and augmented teams. This model...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-4 col-12">
+                        <div class="blog-card">
+                            <a href="blog-page.html">
+                                <div class="image">
+                                    <img class="img-fluid"
+                                        src="https://engineerbabu.com/blog/wp-content/uploads/2021/09/Blog-Images-1.png">
+                                    <div class="post-stats">
+                                        <ul>
+                                            <li><i class="fa fa-eye"></i>11</li>
+                                            <li><i class="fa fa-share"></i>11</li>
+                                            <li><i class="fa fa-comment"></i>11</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </a>
+        
+                            <div class="blog-card-body">
+                                <div class="tags">
+                                    <a href="#">
+                                        App Development
+                                    </a>
+                                    <a href="#">
+                                        Blog
+                                    </a>
+                                </div>
+                                <h3 class="title">
+                                    <a href="blog-page.html"> Tips To Manage & Hire Remote Engineering Team</a>
+                                </h3>
+                                <p class="short-description">
+                                    In the new normal the rules of the workplace have changed. Enterprises have embraced remote
+                                    work
+                                    – with their existing and augmented teams. This model...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-4 col-12">
+                        <div class="blog-card">
+                            <a href="blog-page.html">
+                                <div class="image">
+                                    <img class="img-fluid"
+                                        src="https://engineerbabu.com/blog/wp-content/uploads/2021/09/Blog-Images-1.png">
+                                    <div class="post-stats">
+                                        <ul>
+                                            <li><i class="fa fa-eye"></i>11</li>
+                                            <li><i class="fa fa-share"></i>11</li>
+                                            <li><i class="fa fa-comment"></i>11</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </a>
+        
+                            <div class="blog-card-body">
+                                <div class="tags">
+                                    <a href="#">
+                                        App Development
+                                    </a>
+                                    <a href="#">
+                                        Blog
+                                    </a>
+                                </div>
+                                <h3 class="title">
+                                    <a href="blog-page.html"> Tips To Manage & Hire Remote Engineering Team</a>
+                                </h3>
+                                <p class="short-description">
+                                    In the new normal the rules of the workplace have changed. Enterprises have embraced remote
+                                    work
+                                    – with their existing and augmented teams. This model...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-4 col-12">
+                        <div class="blog-card">
+                            <a href="blog-page.html">
+                                <div class="image">
+                                    <img class="img-fluid"
+                                        src="https://engineerbabu.com/blog/wp-content/uploads/2021/09/Blog-Images-1.png">
+                                    <div class="post-stats">
+                                        <ul>
+                                            <li><i class="fa fa-eye"></i>11</li>
+                                            <li><i class="fa fa-share"></i>11</li>
+                                            <li><i class="fa fa-comment"></i>11</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </a>
+        
+                            <div class="blog-card-body">
+                                <div class="tags">
+                                    <a href="#">
+                                        App Development
+                                    </a>
+                                    <a href="#">
+                                        Blog
+                                    </a>
+                                </div>
+                                <h3 class="title">
+                                    <a href="blog-page.html"> Tips To Manage & Hire Remote Engineering Team</a>
+                                </h3>
+                                <p class="short-description">
+                                    In the new normal the rules of the workplace have changed. Enterprises have embraced remote
+                                    work
+                                    – with their existing and augmented teams. This model...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-4 col-12">
+                        <div class="blog-card">
+                            <a href="blog-page.html">
+                                <div class="image">
+                                    <img class="img-fluid"
+                                        src="https://engineerbabu.com/blog/wp-content/uploads/2021/09/Blog-Images-1.png">
+                                    <div class="post-stats">
+                                        <ul>
+                                            <li><i class="fa fa-eye"></i>11</li>
+                                            <li><i class="fa fa-share"></i>11</li>
+                                            <li><i class="fa fa-comment"></i>11</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </a>
+        
+                            <div class="blog-card-body">
+                                <div class="tags">
+                                    <a href="#">
+                                        App Development
+                                    </a>
+                                    <a href="#">
+                                        Blog
+                                    </a>
+                                </div>
+                                <h3 class="title">
+                                    <a href="blog-page.html"> Tips To Manage & Hire Remote Engineering Team</a>
+                                </h3>
+                                <p class="short-description">
+                                    In the new normal the rules of the workplace have changed. Enterprises have embraced remote
+                                    work
+                                    – with their existing and augmented teams. This model...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-4 col-12">
+                        <div class="blog-card">
+                            <a href="blog-page.html">
+                                <div class="image">
+                                    <img class="img-fluid"
+                                        src="https://engineerbabu.com/blog/wp-content/uploads/2021/09/Blog-Images-1.png">
+                                    <div class="post-stats">
+                                        <ul>
+                                            <li><i class="fa fa-eye"></i>11</li>
+                                            <li><i class="fa fa-share"></i>11</li>
+                                            <li><i class="fa fa-comment"></i>11</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </a>
+        
+                            <div class="blog-card-body">
+                                <div class="tags">
+                                    <a href="#">
+                                        App Development
+                                    </a>
+                                    <a href="#">
+                                        Blog
+                                    </a>
+                                </div>
+                                <h3 class="title">
+                                    <a href="blog-page.html"> Tips To Manage & Hire Remote Engineering Team</a>
+                                </h3>
+                                <p class="short-description">
+                                    In the new normal the rules of the workplace have changed. Enterprises have embraced remote
+                                    work
+                                    – with their existing and augmented teams. This model...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+
+        <!-- -------------------------------- -->
+
+
+        <!------------------------------------------footer--------------------------------- -->
+   {% include 'footer.html' %}

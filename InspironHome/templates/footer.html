@@ -1,0 +1,81 @@
+{% load static %}
+{% load poll_extras %}
+<footer>
+        <div class="container">
+            <div class="row section pt-50 pb-50">
+                <div class="footer-widget col-lg-2 col-xs-12" style="visibility: visible;"><img style="width:150px;"
+                        src="{% static 'img/Inspironlabs v5-03.png' %}"></div>
+                <div class="footer-widget col-lg-3 col-xs-12 col-sm-4 ">
+                    <h3 class="small-title text-uppercase">Company</h3>
+                    <div class="menu-horizontal">
+                        <ul>
+                            <li>
+                                <h4><a href="/about">about us</a></h4>
+                            </li>
+                            {% for work in ourwork %}
+                            {% if 6 > forloop.counter  %}
+                            <li><a href="/ourwork/{{work.title|repspace}}/">{{work.title}}</a></li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-widget col-lg-3 col-xs-12 col-sm-4 wow fadeIn animated">
+                    <h3 class="small-title text-uppercase">Services</h3>
+                    <div class="menu-horizontal">
+                        <ul>
+                            {% for service in services %}
+                            {% if 7 > forloop.counter  %}{% if service.title != 'none' %}
+                            <li>
+                                <h4><a href="/service/{{service.title|repspace}}">{{service.title}}</a></h4>
+                            </li>
+                            {% endif %}
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-widget col-lg-4 col-xs-12 col-sm-6 ">
+                    <h3 class="small-title text-uppercase">Follow us on</h3>
+                    <div class="col-md-12 pl-0 mrfooter">
+                        <ul class="social-network social-circle">
+                            <li>
+                                <a class="icoFacebook" href="#" title="Facebook" target="_blank"><i
+                                        class="fa fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a class="icoTwitter" href="#" title="Twitter" target="_blank"><i
+                                        class="fa fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a class="icoLinkedin" href="#" title="Linkedin" target="_blank"><i
+                                        class="fa fa-linkedin"></i></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+
+                </div>
+            </div>
+        </div>
+        <div id="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <p class="copyright-text text-center">Copyright© 2021 CyberFlax Labs. All rights reserved.&nbsp;
+                            &nbsp;
+                            <a href="terms-conditions">Terms of Use</a> &nbsp; &nbsp; &nbsp; &nbsp;
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    {% block script %}{% endblock %}
+
+</body>
+
+</html>

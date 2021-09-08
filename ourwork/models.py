@@ -1,10 +1,37 @@
 from django.db import models
 
+from django.db import models
+import random ,string
+from django.utils.text import slugify
+
+def get_random_string(size):
+    return ''.join(random.choices(string.ascii_uppercase +
+                             string.digits, k = size))
+
+def unique_slug_generator(instance, new_slug=None):
+    """
+    This is for a Django project and it assumes your instance 
+    has a model with a slug field and a title character (char) field.
+    """
+    slug=new_slug
+    Klass = instance
+    qs_exists = Klass.objects.filter(slug=slug).exists()
+    if qs_exists:
+        new_slug = slugify(str(slug)+get_random_string(4))
+        return unique_slug_generator(instance, new_slug=new_slug)
+    return slugify(slug)
+    
+
+
 # Create your models here.
 class ourwork_cat(models.Model):
     title = models.CharField(max_length= 100)
+    slug = models.SlugField(blank=True)
     def __str__(self):
         return self.title
+    def save(self, *args, **kwargs):
+        self.slug = unique_slug_generator(ourwork_cat,self.title)
+        super(ourwork_cat, self).save(*args, **kwargs)
 class headbanner (models.Model):
     catagory = models.ForeignKey(ourwork_cat, on_delete=models.CASCADE,default=1)
     title = models.CharField(max_length= 100)

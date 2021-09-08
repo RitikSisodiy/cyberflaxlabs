@@ -1,0 +1,75 @@
+{% load static %}
+{% load poll_extras %}
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark  " id="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/home">
+                <img src="{% static 'img/Inspironlabs v5-03.png' %}" alt="">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon "></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto  justify-content-end w-100">
+                    <li class="nav-item {{home}} ">
+                        <a class="nav-link" href="/home">Home <span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item text-danger {{about}}">
+                        <a class="nav-link" href="/about">About Us <span class="sr-only"></span></a>
+                    </li>
+
+
+                    <li class="nav-item dropdown drop_item {{ourwork}}">
+                        <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown">
+                            Our Work
+                        </a>
+                        <ul class="dropdown-menu">
+                            {% for work in ourwork %}
+                            <li><a class="dropdown-item" href="/ourwork/{{work.title|repspace}}/">{{work.title}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown drop_item {{ourservice}}">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown">
+                            Our Services
+                        </a>
+                        <ul class="dropdown-menu ">
+                            
+                            {% for service in services %}
+                            <li {% if service.dropdown %}class="nav-link dropdown-submenu"{% endif %}>
+                                {% if service.title != 'none' %}
+                                <a class="dropdown-item {% if service.dropdown %}dropdown-toggle{% endif %}" href="/service/{{service.title|repspace}}">{{service.title}}</a>
+                                {% endif %}
+                                {% if service.dropdown %}
+                                <ul class="dropdown-menu">
+                                    {% for drop in service.dropdown %}
+                                    
+                                    <li><a href="/service/{{service.title|repspace}}/{{drop.Submenu|repspace}}" class="dropdown-item">{{drop.Submenu}}</a></li>
+                                    
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link {{blog}}" href="/blog/blog">Blogs <span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link {{news}}" href="/blog/news">News <span class="sr-only"></span></a>
+                    </li>
+                    <li>
+
+                        <a href="/contact"> <button class="btn btn-common " type="button"><img
+                                    src="{% static 'img/inquire-now-button-hover.png' %}" alt="inquire now button">&nbsp;&nbsp;Contact
+                                Us</button></a>
+
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
