@@ -84,12 +84,12 @@
                         </div>
                     </div>
                     <div class="btns">
-                        <div class="facebook share-btn">
+                        <a class="facebook share-btn" target='_blank' href="https://www.facebook.com/sharer/sharer.php?u=http://{{request.get_host}}{{request.get_full_path}}">
                             <i class="fa fa-facebook"></i> Facebook
-                        </div>
-                        <div class="twitter share-btn">
+                        </a>
+                        <a class="twitter share-btn" target='_blank' href="https://twitter.com/intent/tweet?url=http://{{request.get_host}}{{request.get_full_path}}&text={{blog.blog_title}}">
                             <i class="fa fa-twitter"></i> Twitter
-                        </div>
+                        </a>
                     </div>
 
                 </div>
@@ -237,7 +237,7 @@
                    {% for blog in blogs %}
                 <div class="col-lg-3 col-sm-4 col-12">
                     <div class="blog-card">
-                        <a href="blog-page.html">
+                        <a >
                             <div class="image">
                                 <img class="img-fluid"
                                     src="/media/{{blog.blog_image}}">
