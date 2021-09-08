@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from . models import blog,catagory,News
+from . models import blog,catagory,News,blogviews
 # Create your views here.
 def visitor_ip_address(request):
 
@@ -13,24 +13,30 @@ def visitor_ip_address(request):
 def Blog(request,slug=None,blogid=None):
     if slug is not None:
         if blogid is None:
-            Blogs= blog.objects.filter(type=list(filter( lambda x:x[1]==slug, blog.Getchoices() ))[0][0])
+            allBlogs= blog.objects.filter(type=list(filter( lambda x:x[1]==slug, blog.Getchoices() ))[0][0])
             responce={
                 'title':slug,
                 slug: 'active',
-                'blogs':Blogs,
-                'ip': visitor_ip_address(request)
+                'blogs':allBlogs,
             }
             return render(request,'blog/blog.html',responce)
         else:
             Blogs= blog.objects.get(slug = blogid)
-            print('in else',Blogs)
-            Blogss= blog.objects.filter(type=list(filter( lambda x:x[1]==slug, blog.Getchoices() ))[0][0])[:3]
+            ip = visitor_ip_address(request)
+            viewob = blogviews.objects.filter(blogid=Blogs.id,ip = ip)
+            if viewob.exists() == False:
+                blogviews(blogid=Blogs,ip=ip).save()
+            allBlogs= blog.objects.filter(type=list(filter( lambda x:x[1]==slug, blog.Getchoices() ))[0][0])
             responce= {
             'title': Blogs.blog_title,
             'blog':Blogs ,
             'ne': 'active',
-            'blogs':Blogss 
+            'blogs':allBlogs.filter(blog_catagory=Blogs.blog_catagory.id)
             }
+            current = responce['blogs'].filter(id__lt = responce['blog'].id).count()
+            responce['nextblog'] = responce['blogs'][current+1] if len(responce['blogs'])-1 > current else False
+            responce['prevblog'] = responce['blogs'][current-1] if current > 0 else False
+            responce['type'] = slug
             return render(request,'blog/post1.html',responce)
     # Blogs= blog.objects.get(slug= slug)
     # Blogss= blog.objects.all()[:3]

@@ -45,10 +45,10 @@
                 <h1>{{blog.blog_title}}</h1>
                 <hr>
                 <div class="views">
-                    <i class="fa fa-eye"></i>11 views
+                    <i class="fa fa-eye"></i>{{blog.blog_views}} views
                 </div>
                 <img src="/media/{{blog.blog_image}}"
-                    class="img-fluid mb-3" alt="">
+                    class="img-fluid mb-3" alt="" width="100%">
 
                 <div class="blog-content col-lg-8 col-12 mx-auto">
                     <div class="padding-pera">
@@ -57,11 +57,11 @@
                 </div>
                 
                 <div class="btns" style = 'justify-content:center;'>
-                    <a href="#" class="next-btn"><i class="fa fa-angle-left"></i>
+                    <a {% if prevblog %} href="/blog/{{type}}/{{prevblog.slug}}" {% endif %} class="next-btn"><i class="fa fa-angle-left"></i>
                         <div class="title">Previous Post</div>
                     </a>
 
-                    <a href="#" class="next-btn">
+                    <a {% if nextblog %} href="/blog/{{type}}/{{nextblog.slug}}" {% endif %} class="next-btn">
                         <div class="title">Next Post</div><i class="fa fa-angle-right"></i>
                     </a>
                 </div>
@@ -234,295 +234,42 @@
             <h3>Doesn’t Miss</h3>
             <div class="blogs-container container">
                 <div class="row">
-                    <div class="col-lg-3 col-sm-4 col-12">
-                        <div class="blog-card">
-                            <a href="blog-page.html">
-                                <div class="image">
-                                    <img class="img-fluid"
-                                        src="https://engineerbabu.com/blog/wp-content/uploads/2021/09/Blog-Images-1.png">
-                                    <div class="post-stats">
-                                        <ul>
-                                            <li><i class="fa fa-eye"></i>11</li>
-                                            <li><i class="fa fa-share"></i>11</li>
-                                            <li><i class="fa fa-comment"></i>11</li>
-                                        </ul>
-                                    </div>
+                   {% for blog in blogs %}
+                <div class="col-lg-3 col-sm-4 col-12">
+                    <div class="blog-card">
+                        <a href="blog-page.html">
+                            <div class="image">
+                                <img class="img-fluid"
+                                    src="/media/{{blog.blog_image}}">
+                                <div class="post-stats">
+                                    <ul>
+                                        <li><i class="fa fa-eye"></i>{{blog.blog_views}}</li>
+                                        <li><i class="fa fa-share"></i>{{blog.blog_share}}</li>
+                                        <li><i class="fa fa-comment"></i>12</li>
+                                    </ul>
                                 </div>
-                            </a>
-        
-                            <div class="blog-card-body">
-                                <div class="tags">
-                                    <a href="#">
-                                        App Development
-                                    </a>
-                                    <a href="#">
-                                        Blog
-                                    </a>
-                                </div>
-                                <h3 class="title">
-                                    <a href="blog-page.html"> Tips To Manage & Hire Remote Engineering Team</a>
-                                </h3>
-                                <p class="short-description">
-                                    In the new normal the rules of the workplace have changed. Enterprises have embraced remote
-                                    work
-                                    – with their existing and augmented teams. This model...
-                                </p>
                             </div>
+                        </a>
+    
+                        <div class="blog-card-body">
+                            <div class="tags">
+                                <a href="#">
+                                    {{blog.blog_catagory}}
+                                </a>
+                                <a href="#">
+                                    {{blog.get_type_display}}
+                                </a>
+                            </div>
+                            <h3 class="title">
+                                <a href="/blog/blog/{{blog.slug}}"> {{blog.blog_title|slice:":20"}}</a>
+                            </h3>
+                            <p class="short-description">
+                               {{blog.blog_content|safe|slice:":150"}}......
+                            </p>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-sm-4 col-12">
-                        <div class="blog-card">
-                            <a href="blog-page.html">
-                                <div class="image">
-                                    <img class="img-fluid"
-                                        src="https://engineerbabu.com/blog/wp-content/uploads/2021/09/Blog-Images-1.png">
-                                    <div class="post-stats">
-                                        <ul>
-                                            <li><i class="fa fa-eye"></i>11</li>
-                                            <li><i class="fa fa-share"></i>11</li>
-                                            <li><i class="fa fa-comment"></i>11</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </a>
-        
-                            <div class="blog-card-body">
-                                <div class="tags">
-                                    <a href="#">
-                                        App Development
-                                    </a>
-                                    <a href="#">
-                                        Blog
-                                    </a>
-                                </div>
-                                <h3 class="title">
-                                    <a href="blog-page.html"> Tips To Manage & Hire Remote Engineering Team</a>
-                                </h3>
-                                <p class="short-description">
-                                    In the new normal the rules of the workplace have changed. Enterprises have embraced remote
-                                    work
-                                    – with their existing and augmented teams. This model...
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-4 col-12">
-                        <div class="blog-card">
-                            <a href="blog-page.html">
-                                <div class="image">
-                                    <img class="img-fluid"
-                                        src="https://engineerbabu.com/blog/wp-content/uploads/2021/09/Blog-Images-1.png">
-                                    <div class="post-stats">
-                                        <ul>
-                                            <li><i class="fa fa-eye"></i>11</li>
-                                            <li><i class="fa fa-share"></i>11</li>
-                                            <li><i class="fa fa-comment"></i>11</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </a>
-        
-                            <div class="blog-card-body">
-                                <div class="tags">
-                                    <a href="#">
-                                        App Development
-                                    </a>
-                                    <a href="#">
-                                        Blog
-                                    </a>
-                                </div>
-                                <h3 class="title">
-                                    <a href="blog-page.html"> Tips To Manage & Hire Remote Engineering Team</a>
-                                </h3>
-                                <p class="short-description">
-                                    In the new normal the rules of the workplace have changed. Enterprises have embraced remote
-                                    work
-                                    – with their existing and augmented teams. This model...
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-4 col-12">
-                        <div class="blog-card">
-                            <a href="blog-page.html">
-                                <div class="image">
-                                    <img class="img-fluid"
-                                        src="https://engineerbabu.com/blog/wp-content/uploads/2021/09/Blog-Images-1.png">
-                                    <div class="post-stats">
-                                        <ul>
-                                            <li><i class="fa fa-eye"></i>11</li>
-                                            <li><i class="fa fa-share"></i>11</li>
-                                            <li><i class="fa fa-comment"></i>11</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </a>
-        
-                            <div class="blog-card-body">
-                                <div class="tags">
-                                    <a href="#">
-                                        App Development
-                                    </a>
-                                    <a href="#">
-                                        Blog
-                                    </a>
-                                </div>
-                                <h3 class="title">
-                                    <a href="blog-page.html"> Tips To Manage & Hire Remote Engineering Team</a>
-                                </h3>
-                                <p class="short-description">
-                                    In the new normal the rules of the workplace have changed. Enterprises have embraced remote
-                                    work
-                                    – with their existing and augmented teams. This model...
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-4 col-12">
-                        <div class="blog-card">
-                            <a href="blog-page.html">
-                                <div class="image">
-                                    <img class="img-fluid"
-                                        src="https://engineerbabu.com/blog/wp-content/uploads/2021/09/Blog-Images-1.png">
-                                    <div class="post-stats">
-                                        <ul>
-                                            <li><i class="fa fa-eye"></i>11</li>
-                                            <li><i class="fa fa-share"></i>11</li>
-                                            <li><i class="fa fa-comment"></i>11</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </a>
-        
-                            <div class="blog-card-body">
-                                <div class="tags">
-                                    <a href="#">
-                                        App Development
-                                    </a>
-                                    <a href="#">
-                                        Blog
-                                    </a>
-                                </div>
-                                <h3 class="title">
-                                    <a href="blog-page.html"> Tips To Manage & Hire Remote Engineering Team</a>
-                                </h3>
-                                <p class="short-description">
-                                    In the new normal the rules of the workplace have changed. Enterprises have embraced remote
-                                    work
-                                    – with their existing and augmented teams. This model...
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-4 col-12">
-                        <div class="blog-card">
-                            <a href="blog-page.html">
-                                <div class="image">
-                                    <img class="img-fluid"
-                                        src="https://engineerbabu.com/blog/wp-content/uploads/2021/09/Blog-Images-1.png">
-                                    <div class="post-stats">
-                                        <ul>
-                                            <li><i class="fa fa-eye"></i>11</li>
-                                            <li><i class="fa fa-share"></i>11</li>
-                                            <li><i class="fa fa-comment"></i>11</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </a>
-        
-                            <div class="blog-card-body">
-                                <div class="tags">
-                                    <a href="#">
-                                        App Development
-                                    </a>
-                                    <a href="#">
-                                        Blog
-                                    </a>
-                                </div>
-                                <h3 class="title">
-                                    <a href="blog-page.html"> Tips To Manage & Hire Remote Engineering Team</a>
-                                </h3>
-                                <p class="short-description">
-                                    In the new normal the rules of the workplace have changed. Enterprises have embraced remote
-                                    work
-                                    – with their existing and augmented teams. This model...
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-4 col-12">
-                        <div class="blog-card">
-                            <a href="blog-page.html">
-                                <div class="image">
-                                    <img class="img-fluid"
-                                        src="https://engineerbabu.com/blog/wp-content/uploads/2021/09/Blog-Images-1.png">
-                                    <div class="post-stats">
-                                        <ul>
-                                            <li><i class="fa fa-eye"></i>11</li>
-                                            <li><i class="fa fa-share"></i>11</li>
-                                            <li><i class="fa fa-comment"></i>11</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </a>
-        
-                            <div class="blog-card-body">
-                                <div class="tags">
-                                    <a href="#">
-                                        App Development
-                                    </a>
-                                    <a href="#">
-                                        Blog
-                                    </a>
-                                </div>
-                                <h3 class="title">
-                                    <a href="blog-page.html"> Tips To Manage & Hire Remote Engineering Team</a>
-                                </h3>
-                                <p class="short-description">
-                                    In the new normal the rules of the workplace have changed. Enterprises have embraced remote
-                                    work
-                                    – with their existing and augmented teams. This model...
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-4 col-12">
-                        <div class="blog-card">
-                            <a href="blog-page.html">
-                                <div class="image">
-                                    <img class="img-fluid"
-                                        src="https://engineerbabu.com/blog/wp-content/uploads/2021/09/Blog-Images-1.png">
-                                    <div class="post-stats">
-                                        <ul>
-                                            <li><i class="fa fa-eye"></i>11</li>
-                                            <li><i class="fa fa-share"></i>11</li>
-                                            <li><i class="fa fa-comment"></i>11</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </a>
-        
-                            <div class="blog-card-body">
-                                <div class="tags">
-                                    <a href="#">
-                                        App Development
-                                    </a>
-                                    <a href="#">
-                                        Blog
-                                    </a>
-                                </div>
-                                <h3 class="title">
-                                    <a href="blog-page.html"> Tips To Manage & Hire Remote Engineering Team</a>
-                                </h3>
-                                <p class="short-description">
-                                    In the new normal the rules of the workplace have changed. Enterprises have embraced remote
-                                    work
-                                    – with their existing and augmented teams. This model...
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                
+                </div>
+            {% endfor %} 
                 </div>
             </div>
         </div>

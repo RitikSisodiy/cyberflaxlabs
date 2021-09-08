@@ -25,6 +25,16 @@ class  blog(models.Model):
 	def save(self, *args, **kwargs):
 		self.slug = unique_slug_generator(blog,self.blog_title)
 		super(blog, self).save(*args, **kwargs)
+class blogviews(models.Model):
+	blogid = models.ForeignKey(blog,on_delete=models.CASCADE)
+	ip = models.GenericIPAddressField()
+	class Meta:
+		unique_together = ['blogid', 'ip']
+	def save(self, *args, **kwargs):
+		viewob = blog.objects.get(id = self.blogid.id)
+		viewob.blog_views = blogviews.objects.filter(blogid=self.blogid.id).count() + 1
+		viewob.save()
+		super(blogviews, self).save(*args, **kwargs)
 class  News(models.Model):
 	blog_title = models.CharField(max_length=50)
 	blog_content = RichTextField()
