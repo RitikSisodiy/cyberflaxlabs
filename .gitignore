@@ -1,8 +1,15 @@
-### Django ###
+# Django #
 *.log
 *.pot
 *.pyc
-__pycache__/
-local_settings.py
+static/
+__pycache__
 db.sqlite3
-.env
+media
+
+# Backup files # 
+*.bak
+
+# Python # 
+*.py[cod] 
+*$py.class 
