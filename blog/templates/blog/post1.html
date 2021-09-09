@@ -237,6 +237,7 @@
                     <a href="#" class="reaction-vote-btn  ">win</a>
                 </div>
             </div>
+            <div class="fb-comments"  data-href="http://{{request.get_host}}{{request.get_full_path}}" data-width="1100"  data-numposts="10"></div>
             <h3>Doesn’t Miss</h3>
             <div class="blogs-container container">
                 <div class="row">
@@ -290,4 +291,6 @@
             return false
         })
     </script>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v11.0&appId=1896181913956297&autoLogAppEvents=1" nonce="EmuZbuYn"></script>
    {% include 'footer.html' %}
