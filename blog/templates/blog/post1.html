@@ -57,13 +57,16 @@
                 </div>
                 
                 <div class="btns" style = 'justify-content:center;'>
-                    <a {% if prevblog %} href="/blog/{{type}}/{{prevblog.slug}}" {% endif %} class="next-btn"><i class="fa fa-angle-left"></i>
+                    {% if prevblog %}
+                    <a  href="/blog/{{type}}/{{prevblog.slug}}"  class="next-btn"><i class="fa fa-angle-left"></i>
                         <div class="title">Previous Post</div>
                     </a>
-
-                    <a {% if nextblog %} href="/blog/{{type}}/{{nextblog.slug}}" {% endif %} class="next-btn">
+                    {% endif %}
+                    {% if nextblog %}
+                    <a  href="/blog/{{type}}/{{nextblog.slug}}"  class="next-btn">
                         <div class="title">Next Post</div><i class="fa fa-angle-right"></i>
                     </a>
+                    {% endif %}
                 </div>
                 <hr>
                 <div class="more-tags">
@@ -237,8 +240,11 @@
                     <a href="#" class="reaction-vote-btn  ">win</a>
                 </div>
             </div>
+            <div class="fb-like" data-href="http://{{request.get_host}}{{request.get_full_path}}" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
             <div class="fb-comments"  data-href="http://{{request.get_host}}{{request.get_full_path}}" data-width="1100"  data-numposts="10"></div>
             <h3>Doesn’t Miss</h3>
+
+
             <div class="blogs-container container">
                 <div class="row">
                    {% for blog in blogs %}
