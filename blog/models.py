@@ -28,6 +28,7 @@ class  blog(models.Model):
 class blogviews(models.Model):
 	blogid = models.ForeignKey(blog,on_delete=models.CASCADE)
 	ip = models.GenericIPAddressField()
+	type = models.CharField(max_length=2)
 	class Meta:
 		unique_together = ['blogid', 'ip']
 	def save(self, *args, **kwargs):

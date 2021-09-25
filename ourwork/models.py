@@ -33,7 +33,7 @@ class ourwork_cat(models.Model):
         self.slug = unique_slug_generator(ourwork_cat,self.title)
         super(ourwork_cat, self).save(*args, **kwargs)
 class headbanner (models.Model):
-    catagory = models.ForeignKey(ourwork_cat, on_delete=models.CASCADE,default=1)
+    catagory = models.ForeignKey(ourwork_cat, on_delete=models.CASCADE,default=1,related_name="headbanner")
     title = models.CharField(max_length= 100)
     content = models.CharField(max_length= 5000)
     projecticon = models.ImageField(upload_to="ourwork/projecticon")

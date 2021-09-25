@@ -1,5 +1,6 @@
+from ourwork.models import Work
 from .models import ourwork_cat,headbanner
-from .serializers import ourwork_catSerializer,headbannerSerializers
+from .serializers import WorkSerializers, ourwork_catSerializer,headbannerSerializers
 from rest_framework import viewsets,filters
 #modelviewset
 # class studentModelViewset(viewsets.ModelViewSet):
@@ -13,4 +14,8 @@ class ourWork_catModelViewset(viewsets.ModelViewSet):
 class headbannerModelViewset(viewsets.ModelViewSet):
     queryset = headbanner.objects.all()
     serializer_class = headbannerSerializers
-    filterset_fields = ('id','catagory', )
+    filterset_fields = ('id','catagory__slug', )
+class ourworkModelViewset(viewsets.ModelViewSet):
+    queryset = Work.objects.all()
+    serializer_class = WorkSerializers
+    filterset_fields = ('id','catagory__slug', )

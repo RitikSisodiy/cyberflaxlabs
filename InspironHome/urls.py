@@ -20,11 +20,8 @@ from api import views as apiviews
 from django.conf.urls.static import static
 from django.conf import settings
 from rest_framework.routers import DefaultRouter
-
+from api.urls import router
 #creating router object
-router = DefaultRouter()
-router.register('ourworkcat',apiviews.ourWork_catModelViewset,basename='ourwork')
-router.register('ourcatbanner',apiviews.headbannerModelViewset,basename='headbanner')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', views.index, name ='home'),
