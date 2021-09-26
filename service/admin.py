@@ -17,7 +17,7 @@ class sub_serviceWeOfferAdmin(admin.ModelAdmin):
 class sub_benifitAdmin(admin.ModelAdmin):
     list_display = ('services','subservices')
 class ServiceSubMenuAdmin(admin.ModelAdmin):
-    list_display = ('Service','Submenu')
+    list_display = ('service','Submenu')
 class expertiseAdmin(admin.ModelAdmin):
     list_display = ('services','Select_type')
 

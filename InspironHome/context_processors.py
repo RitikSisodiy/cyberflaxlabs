@@ -6,7 +6,7 @@ def alltimefunc(request):
     work = ourwork_cat.objects.values('title')
     for ser in services:
         sObject = service.objects.get(id = ser['id'])
-        dropdown = ServiceSubMenu.objects.filter(Service=sObject)
+        dropdown = ServiceSubMenu.objects.filter(service=sObject)
         if len(dropdown)>0:
             ser.update({'dropdown':dropdown})
     dic1 = []

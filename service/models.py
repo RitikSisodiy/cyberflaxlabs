@@ -1,3 +1,4 @@
+from ourwork.models import unique_slug_generator
 from django.db import models
 
 # Create your models here.
@@ -5,12 +6,20 @@ class service(models.Model):
     icon = models.ImageField(upload_to = 'media/ourwork',default= '')
     title = models.CharField(max_length=50)
     content = models.CharField(max_length=5000)
+    slug = models.SlugField(blank=True)
+    def save(self, *args, **kwargs):
+        self.slug = unique_slug_generator(service,self.title)
+        super(service, self).save(*args, **kwargs)
     def __str__(self):
         return self.title
 
 class ServiceSubMenu(models.Model):
-    Service = models.ForeignKey(service, on_delete=models.CASCADE)
+    service = models.ForeignKey(service, on_delete=models.CASCADE,related_name="ServiceSubMenu")
     Submenu = models.CharField(max_length=50)
+    slug = models.SlugField(blank=True)
+    def save(self, *args, **kwargs):
+        self.slug = unique_slug_generator(ServiceSubMenu,self.Submenu)
+        super(ServiceSubMenu, self).save(*args, **kwargs)
     def __str__(self):
         return str(self.Submenu)
     

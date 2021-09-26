@@ -21,7 +21,7 @@ def handle(request,num1,num2= 0):
 			return redirect('home')
 	cats=[]
 	if num2 == 0:
-		Service = ServiceSubMenu.objects.filter(Service=num1)
+		Service = ServiceSubMenu.objects.filter(service=num1)
 		cats= []
 		if len(Service)>0:
 			cat= []
@@ -33,7 +33,7 @@ def handle(request,num1,num2= 0):
 				up['content'] = banner.banner_content	
 				up['icon'] = 	banner.banner_icon
 				cat.append(up)
-			cats = [Service[0].Service,cat]	
+			cats = [Service[0].service,cat]	
 		Service = ServiceSubMenu.objects.filter(Submenu='none')
 		num2= Service[0].id
 		title = service.objects.get(id=num1).title
