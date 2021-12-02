@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - source /home/qg4j6rda9kl2/virtualenv/cyberflaxlabs/3.7/bin/activate && cd /home/qg4j6rda9kl2/cyberflaxlabs
+    - source /home/ztlzpllpqetq/virtualenv/cyberflaxlabs/3.7/bin/activate && cd /home/ztlzpllpqetq/cyberflaxlabs
     - pip install -r requirements.txt
     - python manage.py collectstatic --no-input
     - python manage.py migrate
